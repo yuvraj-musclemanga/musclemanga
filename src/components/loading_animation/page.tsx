@@ -1,12 +1,10 @@
 "use Client";
-
-import Lottie from "lottie-react";
-import animationData from "./loading.json";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const page = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <Lottie animationData={animationData} loop autoPlay={true} />
+      <DotLottieReact src="/animation.lottie" loop autoplay />
     </div>
   );
 };

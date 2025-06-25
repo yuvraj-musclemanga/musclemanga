@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import CatalogueCard from "../catalogue_card/page";
 import { getTopFromCollection } from "@/data/functions";
-import Loading from "../../components/loading_animation/page";
 import Product from "@/data/datatypes";
+import LottieFallbackClient from "../loading_animation/LottieFallbackClient";
 
 const Page = ({
   heading,
@@ -24,7 +24,7 @@ const Page = ({
   });
 
   return loadingFlag ? (
-    <Loading />
+    <LottieFallbackClient />
   ) : (
     <div className="w-full flex flex-col">
       <p className="w-full text-center font-[playfair] text-3xl bg-primary p-4">

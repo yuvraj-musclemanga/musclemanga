@@ -5,7 +5,7 @@ import {
   setCartTotal,
 } from "@/redux/slices/cartSlice";
 import { useEffect, useRef } from "react";
-import { CiShoppingCart } from "react-icons/ci";
+import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import CartListItem from "../../components/cartListItem/page";
@@ -55,14 +55,15 @@ const CartDrawer = ({
           e.stopPropagation();
         }}
       >
-        <div className="w-full p-4">
+        <div className="w-full h-fit relative flex justify-center items-center">
           <RxCross2
-            className="text-3xl"
+            className="text-3xl m-4 absolute top-0 left-0"
             onClick={() => {
               document.body.classList.remove("overflow-hidden");
               setCartDrawerState(0);
             }}
           />
+          <p className="text-2xl mt-4">Cart</p>
         </div>
         <div className="w-full flex-1 overflow-x-hidden">
           {cartItems && Object.keys(cartItems).length > 0 ? (
@@ -91,8 +92,8 @@ const CartDrawer = ({
               </div>
             </div>
           ) : (
-            <div className="w-full h-full flex flex-col items-center pt-12">
-              <CiShoppingCart className="text-7xl" />
+            <div className="w-full h-full flex flex-col items-center justify-center">
+              <PiShoppingCartSimpleBold className="text-7xl" />
               <p className="text-xl">Your cart is empty!</p>
             </div>
           )}
