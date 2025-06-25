@@ -1,13 +1,13 @@
 import React, { Suspense } from "react";
-import ProductPageClient from "./productPageClient";
+import SignupPage from "./signupClient";
 import LottieFallbackClient from "../../components/loading_animation/LottieFallbackClient";
 
-const Page = () => {
+const page = () => {
   return (
     <Suspense fallback={<LottieFallbackClient />}>
-      <ProductPageClient />
+      <SignupPage />
     </Suspense>
   );
 };
 
-export default Page;
+export default page;
