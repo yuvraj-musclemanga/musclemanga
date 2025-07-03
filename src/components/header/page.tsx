@@ -20,7 +20,7 @@ const Page = () => {
     <div
       className={`${
         hide ? "hidden" : "flex"
-      } w-full flex-row sticky top-0 px-4 bg-white font-[playfair]`}
+      } w-full flex-row sticky top-0 px-4 bg-white font-[playfair] z-100`}
     >
       <HamDrawer
         hamDrawerState={hamDrawerState}

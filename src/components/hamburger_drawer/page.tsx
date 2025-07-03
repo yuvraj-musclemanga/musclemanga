@@ -11,16 +11,20 @@ const HamDrawer = ({
 }) => {
   return (
     <div
-      className={`w-screen h-screen bg-black/20 absolute ${
-        hamDrawerState === 0 ? "-left-full" : "left-0"
-      } transition-all z-10`}
+      className={`w-screen h-dvh bg-black/20 absolute top-0 left-0 ${
+        hamDrawerState === 0
+          ? "opacity-0 pointer-events-none"
+          : "opacity-100 pointer-events-auto"
+      } transition duration-500 ease-in-out z-10`}
       onClick={() => {
         document.body.classList.remove("overflow-hidden");
         setHamDrawerState(0);
       }}
     >
       <div
-        className="w-3/4 h-full bg-white"
+        className={`w-3/4 h-full bg-white absolute -left-3/4 top-0 transition duration-500 ease-in-out ${
+          hamDrawerState === 0 ? "translate-x-0" : "translate-x-full"
+        }`}
         onClick={(e) => {
           e.stopPropagation();
         }}
@@ -47,10 +51,18 @@ const HamDrawer = ({
               <IoIosArrowForward />
             </div>
           </Link>
-          <div className="w-full p-4 border-b-1 border-black flex justify-between items-center">
-            <p className="text-lg">Account</p>
-            <IoIosArrowForward />
-          </div>
+          <Link
+            href={"/account"}
+            onClick={() => {
+              document.body.classList.remove("overflow-hidden");
+              setHamDrawerState(0);
+            }}
+          >
+            <div className="w-full p-4 border-b-1 border-black flex justify-between items-center">
+              <p className="text-lg">Account</p>
+              <IoIosArrowForward />
+            </div>
+          </Link>
           <div className="w-full p-4 border-b-1 border-black flex justify-between items-center">
             <p className="text-lg">Contact us</p>
             <IoIosArrowForward />

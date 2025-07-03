@@ -41,16 +41,20 @@ const CartDrawer = ({
 
   return (
     <div
-      className={`w-screen h-dvh bg-black/20 absolute ${
-        cartDrawerState === 0 ? "hidden -right-full" : "right-0"
-      } transition-all overflow-x-hidden z-10`}
+      className={`w-screen h-dvh bg-black/20 absolute top-0 right-0 ${
+        cartDrawerState === 0
+          ? "opacity-0 pointer-events-none"
+          : "opacity-100 pointer-events-auto"
+      } transition duration-500 ease-in-out z-10 overflow-x-hidden`}
       onClick={() => {
         document.body.classList.remove("overflow-hidden");
         setCartDrawerState(0);
       }}
     >
       <div
-        className="w-3/4 h-full absolute right-0 bg-white flex flex-col overflow-x-hidden"
+        className={`w-3/4 h-full absolute -right-3/4 bg-white top-0 transition duration-500 ease-in-out flex flex-col overflow-x-hidden ${
+          cartDrawerState === 0 ? "translate-x-0" : "-translate-x-full"
+        }`}
         onClick={(e) => {
           e.stopPropagation();
         }}
@@ -92,7 +96,7 @@ const CartDrawer = ({
               </div>
             </div>
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center">
+            <div className="w-full h-full flex flex-col items-center justify-center text-gray-300">
               <PiShoppingCartSimpleBold className="text-7xl" />
               <p className="text-xl">Your cart is empty!</p>
             </div>
