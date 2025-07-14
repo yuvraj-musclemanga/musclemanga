@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import logo from "../../../public/logo_w_bg.webp";
+import logo from "../../../public/logo_w_bg_b.webp";
 import { CiMenuBurger, CiShoppingCart } from "react-icons/ci";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,14 +36,16 @@ const Page = () => {
         />
       </div>
       <div className="flex-1/3 flex justify-center items-center">
-        <Link href={"/"}>
-          <Image
-            src={logo}
-            alt="logo"
-            className="w-sm active:scale-90 transition-all"
-            priority
-          />
-        </Link>
+        <div className="w-2/3 aspect-square p-[15%]">
+          <Link href={"/"}>
+            <Image
+              src={logo}
+              alt="logo"
+              className="w-sm active:scale-90 transition-all"
+              priority
+            />
+          </Link>
+        </div>
       </div>
       <CartDrawer
         cartDrawerState={cartDrawerState}

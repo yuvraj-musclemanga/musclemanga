@@ -1,9 +1,23 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import React, { useEffect } from "react";
 import { FaPowerOff } from "react-icons/fa6";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { auth } from "../../../firebase.config";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (!user) {
+      router.push("/login");
+    }
+  });
+
   return (
     <div className="w-full h-full flex flex-col">
       <div className="w-full flex flex-col items-center gap-5 p-10">
@@ -25,16 +39,21 @@ const Page = () => {
         </div>
       </div>
       <div className="w-full flex flex-col gap-8">
-        <div className="flex justify-between items-center text-2xl font-medium p-4 ml-4 mr-4 rounded-2xl bg-gray-200 shadow-xl active:scale-95 transition-all">
-          <p>Addressbook</p>
-          <MdOutlineKeyboardArrowRight />
-        </div>
+        <Link href={"/account/addressbook"}>
+          <div className="flex justify-between items-center text-2xl font-medium p-4 ml-4 mr-4 rounded-2xl bg-gray-200 shadow-xl active:scale-95 transition-all">
+            <p>Addressbook</p>
+            <MdOutlineKeyboardArrowRight />
+          </div>
+        </Link>
         <div className="flex justify-between items-center text-2xl font-medium p-4 ml-4 mr-4 rounded-2xl bg-gray-200 shadow-xl active:scale-95 transition-all">
           <p>Orders</p>
           <MdOutlineKeyboardArrowRight />
         </div>
       </div>
-      <div className="w-full flex flex-col items-center mt-14 mb-8 gap-2">
+      <div
+        className="w-full flex flex-col items-center mt-14 mb-8 gap-2"
+        onClick={() => auth.signOut().then(() => router.push("/"))}
+      >
         <FaPowerOff className="text-4xl text-red-500" />
         <p className="text-sm text-gray-400">Logout</p>
       </div>

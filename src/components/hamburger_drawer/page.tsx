@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IoIosArrowForward, IoLogoInstagram } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import { auth } from "../../../firebase.config";
 
 const HamDrawer = ({
   hamDrawerState,
@@ -9,6 +10,8 @@ const HamDrawer = ({
   hamDrawerState: number;
   setHamDrawerState: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+  const user = auth.currentUser;
+
   return (
     <div
       className={`w-screen h-dvh bg-black/20 absolute top-0 left-0 ${
@@ -52,7 +55,7 @@ const HamDrawer = ({
             </div>
           </Link>
           <Link
-            href={"/account"}
+            href={user ? "/account" : "/login"}
             onClick={() => {
               document.body.classList.remove("overflow-hidden");
               setHamDrawerState(0);
