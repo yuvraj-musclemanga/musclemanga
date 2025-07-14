@@ -5,13 +5,16 @@ import CatalogueCard from "../../components/catalogue_card/page";
 import { getFullCatalogue } from "@/data/functions";
 import Product from "@/data/datatypes";
 import LottieFallbackClient from "@/components/loading_animation/LottieFallbackClient";
+import { useSearchParams } from "next/navigation";
 
 const Page = () => {
   const [productsData, setProductsData] = useState<Product[]>([]);
   const [loadingFlag, setLoadingFlag] = useState(true);
+  const searchParams = useSearchParams();
+  const collection: string = searchParams.get("collection") || "";
 
   useEffect(() => {
-    getFullCatalogue().then((data) => {
+    getFullCatalogue(collection).then((data) => {
       setProductsData(data);
       setLoadingFlag(false);
     });

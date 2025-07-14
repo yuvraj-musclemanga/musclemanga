@@ -14,8 +14,14 @@ export async function getProduct(id: string) {
   return data;
 }
 
-export async function getFullCatalogue() {
-  const { data, error } = await supabase.from("products").select("*");
+export async function getFullCatalogue(collection: string) {
+  const { data, error } =
+    collection === ""
+      ? await supabase.from("products").select("*")
+      : await supabase
+          .from("products")
+          .select("*")
+          .eq("collection", collection);
 
   if (error) {
     console.error("Supabase error:", error.message);

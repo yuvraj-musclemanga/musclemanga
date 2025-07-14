@@ -18,7 +18,6 @@ const Page = () => {
   const [state, setState] = useState("");
   const [pin, setPin] = useState("");
   const dispatch = useDispatch();
-  //   const [selectedAddress, setSelectedAddress] = useState<DocumentData>();
 
   const getData = async () => {
     let adrses: DocumentData[] = [];

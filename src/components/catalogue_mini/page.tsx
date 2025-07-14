@@ -5,6 +5,7 @@ import CatalogueCard from "../catalogue_card/page";
 import { getTopFromCollection } from "@/data/functions";
 import Product from "@/data/datatypes";
 import LottieFallbackClient from "../loading_animation/LottieFallbackClient";
+import Link from "next/link";
 
 const Page = ({
   heading,
@@ -41,6 +42,11 @@ const Page = ({
           />
         ))}
       </div>
+      <Link href={{ pathname: "/catalogue", query: { collection } }}>
+        <button className="bg-black text-white text-lg font-semibold px-4 py-3 rounded-xl active:scale-95 transition-all shadow-xl">
+          Show more
+        </button>
+      </Link>
     </div>
   );
 };
