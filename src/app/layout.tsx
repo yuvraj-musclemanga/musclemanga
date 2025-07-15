@@ -18,9 +18,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "MuscleManga",
   description: "A clothing store for anime and gym lovers!",
-  icons: {
-    icon: "../../public/favicon.ico",
-  },
 };
 
 export default function RootLayout({
