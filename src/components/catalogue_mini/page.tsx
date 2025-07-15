@@ -22,7 +22,7 @@ const Page = ({
       setProductsData(data);
       setLoadingFlag(false);
     });
-  });
+  }, []);
 
   return loadingFlag ? (
     <LottieFallbackClient />
