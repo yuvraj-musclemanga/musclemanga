@@ -8,7 +8,6 @@ import TrackableImage from "../../components/trackable_image/page";
 import SizeChart from "../../../public/SizeChart.webp";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
-import { BsHandbag } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectItems,
@@ -237,12 +236,6 @@ const ProductPageClient = () => {
         <CiShoppingCart className="text-3xl" />
         Add to cart
       </button>
-      {/* <button
-        className="flex items-center py-3 text-xl justify-center mx-4 gap-4 text-white bg-black active:scale-90 transition-all font-[playfair]"
-      >
-        <BsHandbag className="text-2xl" />
-        Buy Now
-      </button> */}
       <div className="w-full px-4 flex flex-col gap-2">
         <p className="font-bold text-gray-400 text-xl">Size chart</p>
         <Image src={SizeChart} alt="Size chart" />
