@@ -27,7 +27,7 @@ const Page = ({
   return loadingFlag ? (
     <LottieFallbackClient />
   ) : (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col items-center">
       <p className="w-full text-center font-[playfair] text-3xl bg-primary p-4">
         {heading}
       </p>
@@ -43,7 +43,7 @@ const Page = ({
         ))}
       </div>
       <Link href={{ pathname: "/catalogue", query: { collection } }}>
-        <button className="bg-black text-white text-lg font-semibold px-4 py-3 rounded-xl active:scale-95 transition-all shadow-xl">
+        <button className="bg-black text-white text-md font-semibold p-2 rounded-xl active:scale-95 transition-all shadow-xl mt-6 mb-10">
           Show more
         </button>
       </Link>

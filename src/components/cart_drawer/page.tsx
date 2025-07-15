@@ -72,7 +72,7 @@ const CartDrawer = ({
         <div className="w-full flex-1 overflow-x-hidden">
           {cartItems && Object.keys(cartItems).length > 0 ? (
             <div className="w-full h-full flex flex-col px-4 overflow-x-hidden">
-              <div className="w-full flex-1 flex flex-col gap-4">
+              <div className="w-full flex-1 flex flex-col gap-4 overflow-y-scroll my-6">
                 {Object.entries(cartItems).map(([key, value]) => (
                   <CartListItem item={[key, value as CartItem]} key={key} />
                 ))}

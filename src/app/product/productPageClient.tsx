@@ -237,18 +237,12 @@ const ProductPageClient = () => {
         <CiShoppingCart className="text-3xl" />
         Add to cart
       </button>
-      <button
+      {/* <button
         className="flex items-center py-3 text-xl justify-center mx-4 gap-4 text-white bg-black active:scale-90 transition-all font-[playfair]"
-        onClick={() => {
-          // dispatch(setCartItems({}));
-          // dispatch(setCartTotal(0));
-          // localStorage.setItem("cart", JSON.stringify({}));
-          // localStorage.setItem("total", "0");
-        }}
       >
         <BsHandbag className="text-2xl" />
         Buy Now
-      </button>
+      </button> */}
       <div className="w-full px-4 flex flex-col gap-2">
         <p className="font-bold text-gray-400 text-xl">Size chart</p>
         <Image src={SizeChart} alt="Size chart" />
