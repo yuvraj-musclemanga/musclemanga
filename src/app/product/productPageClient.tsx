@@ -7,7 +7,7 @@ import Catalogue_mini from "../../components/catalogue_mini/page";
 import TrackableImage from "../../components/trackable_image/page";
 import SizeChart from "../../../public/SizeChart.webp";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { CiShoppingCart } from "react-icons/ci";
+import { CiHeart, CiShoppingCart } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectItems,
@@ -16,9 +16,11 @@ import {
   setCartTotal,
 } from "@/redux/slices/cartSlice";
 import { FaMinus, FaPlus } from "react-icons/fa6";
-import { getProduct } from "@/data/functions";
+import { getProduct, getWishlist } from "@/data/functions";
 import Loading from "../../components/loading_animation/page";
 import Product from "@/data/datatypes";
+import { auth } from "../../../firebase.config";
+import toast from "react-hot-toast";
 
 const ProductPageClient = () => {
   const dispatch = useDispatch();
@@ -74,6 +76,12 @@ const ProductPageClient = () => {
     dispatch(setCartItems(cartItems));
     cartTotal = cartTotal + quantity * productData.price;
     dispatch(setCartTotal(cartTotal));
+  };
+
+  const addToWishlist = async () => {
+    auth.currentUser
+      ? console.log(getWishlist(auth.currentUser.email || ""))
+      : toast.error("You need to login first!", { duration: 1500 });
   };
 
   useEffect(() => {
@@ -235,6 +243,13 @@ const ProductPageClient = () => {
       >
         <CiShoppingCart className="text-3xl" />
         Add to cart
+      </button>
+      <button
+        className="border-1 border-black flex items-center py-3 text-xl justify-center mx-4 gap-4 active:scale-90 transition-all font-[playfair]"
+        onClick={addToWishlist}
+      >
+        <CiHeart className="text-3xl" />
+        Wishlist
       </button>
       <div className="w-full px-4 flex flex-col gap-2">
         <p className="font-bold text-gray-400 text-xl">Size chart</p>

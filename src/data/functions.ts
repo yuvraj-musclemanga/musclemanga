@@ -46,3 +46,17 @@ export async function getTopFromCollection(collection: string) {
 
   return data;
 }
+
+export async function getWishlist(email: string) {
+  const { data, error } = await supabase
+    .from("wishlists")
+    .select("wishlist")
+    .eq("id", email);
+
+  if (error) {
+    console.log("Supabase error:", error.message);
+    return [];
+  }
+
+  return data;
+}
