@@ -16,11 +16,11 @@ import {
   setCartTotal,
 } from "@/redux/slices/cartSlice";
 import { FaMinus, FaPlus } from "react-icons/fa6";
-import { getProduct, getWishlist } from "@/data/functions";
+import { getProduct } from "@/data/functions";
 import Loading from "../../components/loading_animation/page";
 import Product from "@/data/datatypes";
-import { auth } from "../../../firebase.config";
-import toast from "react-hot-toast";
+// import { auth } from "../../../firebase.config";
+// import toast from "react-hot-toast";
 
 const ProductPageClient = () => {
   const dispatch = useDispatch();
@@ -78,11 +78,11 @@ const ProductPageClient = () => {
     dispatch(setCartTotal(cartTotal));
   };
 
-  const addToWishlist = async () => {
-    auth.currentUser
-      ? console.log(getWishlist(auth.currentUser.email || ""))
-      : toast.error("You need to login first!", { duration: 1500 });
-  };
+  // const addToWishlist = async () => {
+  //   auth.currentUser
+  //     ? console.log("Added")
+  //     : toast.error("You need to login first!", { duration: 1500 });
+  // };
 
   useEffect(() => {
     getProduct(productId).then((data) => {
@@ -246,7 +246,7 @@ const ProductPageClient = () => {
       </button>
       <button
         className="border-1 border-black flex items-center py-3 text-xl justify-center mx-4 gap-4 active:scale-90 transition-all font-[playfair]"
-        onClick={addToWishlist}
+        onClick={() => {}}
       >
         <CiHeart className="text-3xl" />
         Wishlist
