@@ -107,7 +107,7 @@ const ProductPageClient = () => {
       <div className="w-full flex flex-col gap-4">
         <div
           ref={containerRef}
-          className="w-screen flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory"
+          className="w-screen aspect-[4/5] bg-gray-200 flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory"
         >
           {productData.pictures[productData.colours[activeColour]].map(
             (image: string, index: number) => (

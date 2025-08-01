@@ -28,10 +28,15 @@ const Page = ({
     <LottieFallbackClient />
   ) : (
     <div className="w-full flex flex-col items-center">
-      <p className="w-full text-center font-[playfair] text-3xl bg-primary p-4">
-        {heading}
-      </p>
-      <div className="w-full grid grid-cols-2 p-4 gap-x-1.5 gap-y-6">
+      <div className="flex p-4 items-baseline">
+        <p className="w-full text-center font-bungee font-normal text-4xl bg-primary">
+          {heading.split(/(?= )/)[0]}
+        </p>
+        <p className="w-full text-center font-bitcountsingle font-normal text-2xl bg-primary">
+          {heading.split(/(?= )/)[1]}
+        </p>
+      </div>
+      <div className="w-full grid grid-cols-2 p-4 gap-x-4 gap-y-6">
         {productsData.map((productData: Product, index) => (
           <CatalogueCard
             card_image={productData.thumbnail}

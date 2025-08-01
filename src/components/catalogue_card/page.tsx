@@ -16,19 +16,19 @@ const page = ({
   return (
     <Link href={{ pathname: "/product", query: { product: id } }}>
       <div className="w-full flex flex-col">
-        <Image
-          src={card_image}
-          alt="card image"
-          // fill
-          width={100}
-          height={100}
-          className="!w-auto h-full object-cover aspect-[1/1.2] overflow-visible py-4 bg-gray-200"
-        />
+        <div className="relative w-full aspect-[4/5]">
+          <Image
+            src={card_image}
+            alt="card image"
+            fill
+            className="w-full h-full object-cover py-4 bg-gray-200 rounded-3xl"
+          />
+        </div>
         <div className="flex flex-col items-center">
-          <p className="font-normal text-md text-center">
+          <p className="font-josefin font-normal text-md text-center">
             {name} | Oversized Tee | Unisex
           </p>
-          <p className="text-xs mt-3">₹{price}</p>
+          <p className="font-bebas text-xs mt-3">₹{price}</p>
         </div>
       </div>
     </Link>
