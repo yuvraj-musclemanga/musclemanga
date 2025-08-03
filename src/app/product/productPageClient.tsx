@@ -89,7 +89,7 @@ const ProductPageClient = () => {
       setProductData(data[0]);
       setLoadingFlag(false);
     });
-  }, []);
+  }, [productId]);
 
   useEffect(() => {
     if (cart) {
