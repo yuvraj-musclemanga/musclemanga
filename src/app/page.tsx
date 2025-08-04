@@ -17,7 +17,14 @@ export default function Home() {
         </Marquee>
       </div>
       <div className="w-full h-full flex flex-col gap-5">
-        <NextVideo src={Banner} autoPlay loop controls={false} muted />
+        <NextVideo
+          src={Banner}
+          autoPlay
+          loop
+          controls={false}
+          muted
+          playsInline
+        />
         <Catalogue_mini heading="Muscle .drop-01" collection="Muscle" />
         <Image src={banner} alt="banner" className="mb-6" />
         <Catalogue_mini heading="Manga .drop-01" collection="Manga" />
