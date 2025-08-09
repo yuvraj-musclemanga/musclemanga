@@ -25,7 +25,7 @@ const HamDrawer = ({
       }}
     >
       <div
-        className={`w-3/4 h-full bg-white absolute -left-3/4 top-0 transition duration-500 ease-in-out ${
+        className={`w-3/4 sm:w-1/2 lg:w-1/4 h-full bg-white absolute -left-3/4 sm:-left-1/2 lg:-left-1/4 top-0 transition duration-500 ease-in-out ${
           hamDrawerState === 0 ? "translate-x-0" : "translate-x-full"
         }`}
         onClick={(e) => {

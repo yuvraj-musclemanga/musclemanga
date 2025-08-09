@@ -7,6 +7,26 @@ import Product from "@/data/datatypes";
 import LottieFallbackClient from "../loading_animation/LottieFallbackClient";
 import Link from "next/link";
 
+function useResponsiveLimit() {
+  const [limit, setLimit] = useState(4);
+
+  useEffect(() => {
+    function updateLimit() {
+      const width = window.innerWidth;
+      if (width >= 1536) setLimit(8); // 2xl
+      else if (width >= 1280) setLimit(6); // xl
+      else if (width >= 1024) setLimit(5); // lg
+      else setLimit(4); // default
+    }
+
+    updateLimit();
+    window.addEventListener("resize", updateLimit);
+    return () => window.removeEventListener("resize", updateLimit);
+  }, []);
+
+  return limit;
+}
+
 const Page = ({
   heading,
   collection,
@@ -16,9 +36,10 @@ const Page = ({
 }) => {
   const [productsData, setProductsData] = useState<Product[]>([]);
   const [loadingFlag, setLoadingFlag] = useState(true);
+  const limit = useResponsiveLimit();
 
   useEffect(() => {
-    getTopFromCollection(collection).then((data) => {
+    getTopFromCollection(collection, limit).then((data) => {
       setProductsData(data);
       setLoadingFlag(false);
     });
@@ -36,7 +57,7 @@ const Page = ({
           {heading.split(/(?= )/)[1]}
         </p>
       </div>
-      <div className="w-full grid grid-cols-2 p-4 gap-x-4 gap-y-6">
+      <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 p-4 gap-x-4 gap-y-6">
         {productsData.map((productData: Product, index) => (
           <CatalogueCard
             card_image={productData.thumbnail}

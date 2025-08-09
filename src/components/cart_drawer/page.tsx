@@ -52,7 +52,7 @@ const CartDrawer = ({
       }}
     >
       <div
-        className={`w-3/4 h-full absolute -right-3/4 bg-white top-0 transition duration-500 ease-in-out flex flex-col overflow-x-hidden ${
+        className={`w-3/4 sm:w-1/2 lg:w-1/4 h-full absolute -right-3/4 sm:-right-1/2 lg:-right-1/4 bg-white top-0 transition duration-500 ease-in-out flex flex-col overflow-x-hidden ${
           cartDrawerState === 0 ? "translate-x-0" : "-translate-x-full"
         }`}
         onClick={(e) => {

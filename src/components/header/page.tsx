@@ -20,7 +20,7 @@ const Page = () => {
     <div
       className={`${
         hide ? "hidden" : "flex"
-      } w-full flex-row sticky top-0 px-4 bg-white font-[playfair] z-100`}
+      } w-full flex-row sticky top-0 px-4 sm:px-6 lg:px-8 bg-white font-[playfair] z-100`}
     >
       <HamDrawer
         hamDrawerState={hamDrawerState}
@@ -28,7 +28,7 @@ const Page = () => {
       />
       <div className="flex-1/3 flex items-center justify-start">
         <CiMenuBurger
-          className="text-2xl active:scale-90 transition-all"
+          className="text-2xl sm:text-3xl active:scale-90 transition-all"
           onClick={() => {
             document.body.classList.add("overflow-hidden");
             setHamDrawerState(1);
@@ -36,7 +36,7 @@ const Page = () => {
         />
       </div>
       <div className="flex-1/3 flex justify-center items-center">
-        <div className="w-2/3 aspect-square p-[15%]">
+        <div className="w-2/3 sm:w-2/6 lg:w-1/5 aspect-square p-[15%] sm:p-[6%] lg:p-[4%]">
           <Link href={"/"}>
             <Image
               src={logo}
@@ -53,7 +53,7 @@ const Page = () => {
       />
       <div className="flex-1/3 flex justify-end items-center">
         <CiShoppingCart
-          className="text-2xl active:scale-90 transition-all"
+          className="text-2xl sm:text-3xl active:scale-90 transition-all"
           onClick={() => {
             document.body.classList.add("overflow-hidden");
             setCartDrawerState(1);

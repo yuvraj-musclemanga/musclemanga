@@ -8,11 +8,23 @@ import Banner from "../../videos/Banner.mp4";
 export default function Home() {
   return (
     <>
-      <div className="w-full h-fit">
+      <div className="w-full h-fit bg-amber-100">
         <Marquee speed={60}>
-          <div className="flex bg-amber-100 py-2">
-            <p>🎊 Flat 10% OFF On First Order. 🎊</p>
-            <p className="mx-12">🤩Use Code NEW10.🤩</p>
+          <div className="w-full xl:w-[100vw] flex justify-around gap-8 py-2 px-4">
+            <p className="text-md sm:text-lg">
+              🎊 Flat <span className="font-black">10% OFF</span> On First
+              Order. 🎊
+            </p>
+            <p className="text-md sm:text-lg">
+              🤩 Use Code <span className="font-black">NEW10</span>. 🤩
+            </p>
+            <p className="text-md sm:text-lg">
+              🎊 Flat <span className="font-black">10% OFF</span> On First
+              Order. 🎊
+            </p>
+            <p className="text-md sm:text-lg">
+              🤩 Use Code <span className="font-black">NEW10</span>. 🤩
+            </p>
           </div>
         </Marquee>
       </div>

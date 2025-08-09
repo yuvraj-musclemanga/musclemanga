@@ -31,12 +31,15 @@ export async function getFullCatalogue(collection: string) {
   return data;
 }
 
-export async function getTopFromCollection(collection: string) {
+export async function getTopFromCollection(
+  collection: string,
+  limit: number = 4
+) {
   const { data, error } = await supabase
     .from("products")
     .select("*")
     .eq("collection", collection)
-    .limit(4)
+    .limit(limit)
     .order("orderedby", { ascending: true });
 
   if (error) {
